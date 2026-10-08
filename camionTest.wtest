@@ -1,9 +1,18 @@
 import camion.*
+import cosas.*
 
 describe "group of test for camion" {
 
-  test "first test" {
-    assert.that(true)
-  }
+  test "test camion 1" {
+    bumblebee.cambiarEstado()
+    camion.cargar(bumblebee)
+    arenaAGranel.cambiarPeso(150)
+    camion.cargar(arenaAGranel)
+    camion.cargar(bateriaAntiarea)
+    camion.cargar(embalajeSeguridad)
+    paqueteLadrillos.cambiarCantLadrillos(80)
+    embalajeSeguridad.cambiarCosa(paqueteLadrillos)
 
+    assert.that(camion.peso() > 5000)
+  }
 }

@@ -2,8 +2,20 @@ import cosas.*
 
 describe "group of test for cosas" {
 
-  test "first test" {
-    assert.that(true)
+  test "test ladrillos" {
+    paqueteLadrillos.cambiarCantLadrillos(5)
+    assert.notThat(paqueteLadrillos.peso() > 10)
+  }
+
+  test "test embalaje" {
+    assert.that(embalajeSeguridad.peso() > 20)
+  }
+
+  test "test contenedor" {
+    contenedorPortuario.agregarCosa(paqueteLadrillos)
+    contenedorPortuario.agregarCosa(embalajeSeguridad)
+    contenedorPortuario.agregarCosa(bateriaAntiarea)
+    assert.that(contenedorPortuario.peso() > 100)
   }
 
 }
